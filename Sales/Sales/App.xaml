@@ -4,8 +4,17 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:infra="clr-namespace:Sales.Infrastructure"
              x:Class="Sales.App">
     <Application.Resources>
+        <ResourceDictionary>
+            <!--Locator-->
+            <infra:InstanceLocator x:Key="Locator"/>
+            
+            <!--Parametros-->
+            <x:String x:Key="UrlAPI">https://salesapi20200510.azurewebsites.net</x:String>
+        </ResourceDictionary>
+
 
     </Application.Resources>
 </Application>
