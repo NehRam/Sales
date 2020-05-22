@@ -13,6 +13,8 @@
             
             <!--Parametros-->
             <x:String x:Key="UrlAPI">https://salesapi20200510.azurewebsites.net</x:String>
+            <x:String x:Key="UrlPrefix">/api</x:String>
+            <x:String x:Key="UrlProducsController">/Products</x:String>
         </ResourceDictionary>
 
 
