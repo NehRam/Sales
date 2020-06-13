@@ -2,6 +2,8 @@
 {
     using System;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
+
     public class Product
     {
         [Key]
@@ -30,7 +32,8 @@
         {
             return this.Description; 
         }
-
+        [NotMapped]
+        public byte[] ImageArray { get; set; }
         public string ImageFullPath {
             get
             {
@@ -38,7 +41,7 @@
                 {
                     return "noproduct";
                 }
-                return $"https://salesbackend20200510.azurewebsites.net/{this.ImagePath.Substring(1)}";
+                return $"https://salesapi20200510.azurewebsites.net/{this.ImagePath.Substring(1)}";
             } 
         }
     }
