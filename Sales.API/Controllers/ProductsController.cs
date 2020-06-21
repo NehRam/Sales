@@ -14,6 +14,7 @@
     using Domain.Models;
     using Sales.API.Helpers;
 
+    [Authorize]
     public class ProductsController : ApiController
     {
         private DataContext db = new DataContext();
@@ -56,7 +57,7 @@
             if (product.ImageArray != null && product.ImageArray.Length > 0)
             {
                 var stream = new MemoryStream(product.ImageArray);
-                var guid = ShortGuid.NewShortGuid().ToString();
+                var guid = Guid.NewGuid().ToString();
                 var file = $"{guid}.jpg";
                 var folder = "~/Content/Products";
                 var fullPath = $"{folder}/{file}";

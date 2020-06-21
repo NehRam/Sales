@@ -8,7 +8,7 @@ namespace Sales.Backend.Controllers
     using System.Net;
     using System.Threading.Tasks;
     using System.Web.Mvc;
-
+    [Authorize]
     public class ProductsController : Controller
     {
         private LocalDataContext db = new LocalDataContext();
@@ -43,6 +43,7 @@ namespace Sales.Backend.Controllers
         // POST: Products/Create
         // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que desea enlazarse. Para obtener 
         // más información vea https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Create(ProductView view)

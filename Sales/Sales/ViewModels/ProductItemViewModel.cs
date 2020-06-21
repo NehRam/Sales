@@ -44,7 +44,7 @@
         {
             MainViewModel.GetInstance().EditProduct = new EditProductViewModel(this);
 
-            await Application.Current.MainPage.Navigation.PushAsync(new EditProductPage());
+            await App.Navigator.PushAsync(new EditProductPage());
         }
 
         private async void DeleteProduct()
@@ -72,7 +72,7 @@
             var prefix = Application.Current.Resources["UrlPrefix"].ToString();
             var controller = Application.Current.Resources["UrlProducsController"].ToString();
 
-            var response = await this.apiService.Delete(url, prefix, controller, this.ProducId);
+            var response = await this.apiService.Delete(url, prefix, controller, this.ProducId, Settings.TokenType, Settings.AccessToken);
 
             if (!response.IsSuccess)
             {

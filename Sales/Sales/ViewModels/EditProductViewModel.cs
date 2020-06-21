@@ -107,7 +107,7 @@
             var prefix = Application.Current.Resources["UrlPrefix"].ToString();
             var controller = Application.Current.Resources["UrlProducsController"].ToString();
 
-            var response = await this.apiService.Delete(url, prefix, controller, this.Product.ProducId);
+            var response = await this.apiService.Delete(url, prefix, controller, this.Product.ProducId, Settings.TokenType, Settings.AccessToken);
 
             if (!response.IsSuccess)
             {
@@ -128,7 +128,7 @@
             this.IsRunning = false;
             this.IsEnabled = true;
 
-            await Application.Current.MainPage.Navigation.PopAsync();
+            await App.Navigator.PopAsync();
         }
 
         private async void ChangeImage()
@@ -221,7 +221,7 @@
             var url = Application.Current.Resources["UrlAPI"].ToString();
             var prefix = Application.Current.Resources["UrlPrefix"].ToString();
             var controller = Application.Current.Resources["UrlProducsController"].ToString();
-            var response = await this.apiService.Put(url, prefix, controller, this.Product, this.Product.ProducId);
+            var response = await this.apiService.Put(url, prefix, controller, this.Product, this.Product.ProducId, Settings.TokenType, Settings.AccessToken);
 
             if (!response.IsSuccess)
             {
@@ -248,7 +248,7 @@
             productsViewModel.RefreshList();
             this.IsRunning = false;
             this.IsEnabled = true;
-            await Application.Current.MainPage.Navigation.PopAsync();
+            await App.Navigator.PopAsync();
         }
         #endregion
     }
