@@ -68,7 +68,7 @@ namespace Sales.Helpers
         {
             get
             {
-                return AppSettings.GetValueOrDefault(tokenType, stringDefault);
+                return AppSettings.GetValueOrDefault(userASP, stringDefault);
             }
             set
             {

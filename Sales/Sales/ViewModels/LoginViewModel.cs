@@ -129,6 +129,84 @@
             this.IsRunning = false;
             this.IsEnabled = true;
         }
+
+        public ICommand LoginFacebookCommand
+        {
+            get
+            {
+                return new RelayCommand(LoginFacebook);
+            }
+        }
+
+        private async void LoginFacebook()
+        {
+            var connection = await this.apiService.CheckConnection();
+
+            if (!connection.IsSuccess)
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(
+                    Lenguages.Error, 
+                    connection.Message, 
+                    Lenguages.Accept);
+                return;
+            }
+
+            await Application.Current.MainPage.Navigation.PushAsync(new LoginFacebookPage());
+        }
+
+        public ICommand LoginInstagramCommand
+        {
+            get
+            {
+                return new RelayCommand(LoginInstagram);
+            }
+        }
+
+        private async void LoginInstagram()
+        {
+            var connection = await this.apiService.CheckConnection();
+
+            if (!connection.IsSuccess)
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(
+                    Lenguages.Error,
+                    connection.Message,
+                    Lenguages.Accept);
+                return;
+            }
+
+            await Application.Current.MainPage.Navigation.PushAsync(new LoginInstagramPage());
+        }
+
+        public ICommand LoginTwitterCommand
+        {
+            get
+            {
+                return new RelayCommand(LoginTwitter);
+            }
+        }
+
+        private async void LoginTwitter()
+        {
+            var connection = await this.apiService.CheckConnection();
+
+            if (!connection.IsSuccess)
+            {
+                this.IsRunning = false;
+                this.IsEnabled = true;
+                await Application.Current.MainPage.DisplayAlert(
+                    Lenguages.Error,
+                    connection.Message,
+                    Lenguages.Accept);
+                return;
+            }
+
+            await Application.Current.MainPage.Navigation.PushAsync(new LoginTwitterPage());
+        }
         #endregion
     }
 }

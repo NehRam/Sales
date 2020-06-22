@@ -31,6 +31,18 @@
                 return null;
             } 
         }
+        public string UserImageFullPath
+        {
+            get
+            {
+                if (this.UserASP != null && this.UserASP.Claims != null && this.UserASP.Claims.Count > 3)
+                {
+                    return $"https://salesapi20200510.azurewebsites.net{this.UserASP.Claims[3].ClaimValue.Substring(1)}";
+                }
+
+                return null;
+            }
+        }
         #endregion
 
         #region Constructors
