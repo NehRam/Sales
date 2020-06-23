@@ -1,10 +1,12 @@
 ﻿namespace Sales.API.Controllers
 {
+    using Microsoft.Ajax.Utilities;
     using Newtonsoft.Json.Linq;
     using Sales.API.Helpers;
     using Sales.Common.Models;
     using System;
     using System.IO;
+    using System.Web.Configuration;
     using System.Web.Http;
     [RoutePrefix("api/Users")]
     public class UsersController : ApiController
@@ -62,6 +64,29 @@
             {
                 return BadRequest(ex.Message);
             }
+        }
+
+        [HttpPost]
+        [Route("LoginFacebook")]
+        public IHttpActionResult LoginFacebook(FacebookResponse profile)
+        {
+            var user = UsersHelper.GetUserASP(profile.Id);
+            if (user != null)
+            {
+                return Ok(true);
+            }
+
+            var userRequest = new UserRequest
+            {
+                EMail = profile.Id,
+                FistName = profile.FirstName,
+                ImagePath = profile.Picture.Data.Url,
+                LastName = profile.LastName,
+                Password = profile.Id
+            };
+
+            var answer = UsersHelper.CreateUserASP(userRequest);
+            return Ok(answer);
         }
     }
 }
