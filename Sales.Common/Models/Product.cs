@@ -1,6 +1,9 @@
 ﻿namespace Sales.Common.Models
 {
+    using Newtonsoft.Json;
     using System;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,6 +12,7 @@
         [Key]
         public int ProducId { get; set; }
 
+        public int CategoryId { get; set; }
         [Required]
         [StringLength(50)]
         public string Description { get; set; }
@@ -26,12 +30,21 @@
         [DataType(DataType.Date)]
         public DateTime PublishOn { get; set; }
 
+        [Required]
+        [StringLength(128)]
+        public string UserId { get; set; }
+
+        [JsonIgnore]
+        public virtual Category Category { get; set; }
+
         [Display (Name ="Image")]
         public string ImagePath { get; set; }
+
         public override string ToString()
         {
             return this.Description; 
         }
+
         [NotMapped]
         public byte[] ImageArray { get; set; }
         public string ImageFullPath {
@@ -41,7 +54,7 @@
                 {
                     return "noproduct";
                 }
-                return $"https://salesapi20200510.azurewebsites.net/{this.ImagePath.Substring(1)}";
+                return $"https://salesapi20200510.azurewebsites.net{this.ImagePath.Substring(1)}";
             } 
         }
     }

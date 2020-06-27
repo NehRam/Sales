@@ -1,17 +1,14 @@
-﻿using Sales.Views;
-using System;
-using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-
-namespace Sales
+﻿namespace Sales
 {
-    using Views;
-    using ViewModels;
-    using Sales.Helpers;
+    using System;
+    using System.Threading.Tasks;
+    using Xamarin.Forms;
     using Newtonsoft.Json;
     using Sales.Common.Models;
-    using System.Threading.Tasks;
+    using Sales.Helpers;
     using Sales.Services;
+    using ViewModels;
+    using Views;
 
     public partial class App : Application
     {
