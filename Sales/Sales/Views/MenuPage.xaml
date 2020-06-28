@@ -28,7 +28,8 @@
             </Label>
             <ListView ItemsSource="{Binding Menu}"
                       SeparatorVisibility="None"
-                      HasUnevenRows="True">
+                      HasUnevenRows="True"
+                      BackgroundColor="Transparent">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
