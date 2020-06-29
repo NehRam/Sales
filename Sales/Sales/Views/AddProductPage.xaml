@@ -46,14 +46,28 @@
                            Keyboard="Numeric" 
                            Grid.Column="1" 
                            Grid.Row="1"/>
+                    <Label
+                        Grid.Column="0"
+                        Grid.Row="2"
+                        Text="{i18n:Translate Category}"
+                        VerticalOptions="Center">
+                    </Label>
+                    <Picker
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        ItemDisplayBinding="{Binding Description}"
+                        ItemsSource="{Binding Categories}"
+                        SelectedItem="{Binding Category}"
+                        Title="{i18n:Translate CategoryPlaceholder}">
+                    </Picker>
                     <Label Text="{i18n:Translate Remarks}" 
                            Grid.Column="0" 
-                           Grid.Row="2" 
+                           Grid.Row="3" 
                            VerticalOptions="Center"></Label>
                     <Editor VerticalOptions="FillAndExpand" 
                             Text="{Binding Remarks}" 
                             Grid.Column="1" 
-                            Grid.Row="2"/>
+                            Grid.Row="3"/>
                 </Grid>
 
                 <ActivityIndicator VerticalOptions="CenterAndExpand" IsRunning="{Binding IsRunning}"/>

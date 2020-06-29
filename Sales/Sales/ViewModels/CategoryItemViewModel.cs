@@ -18,7 +18,7 @@
 
         private async void GotoCategory()
         {
-            MainViewModel.GetInstance().Products = new ProductsViewModel();//this
+            MainViewModel.GetInstance().Products = new ProductsViewModel(this);
             await App.Navigator.PushAsync(new ProductsPage());
         }
         #endregion
