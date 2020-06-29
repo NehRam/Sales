@@ -295,6 +295,8 @@
                 this.Product.ImageArray = imageArray;
             }
 
+            this.Product.CategoryId = this.Category.CategoryId;
+
             var url = Application.Current.Resources["UrlAPI"].ToString();
             var prefix = Application.Current.Resources["UrlPrefix"].ToString();
             var controller = Application.Current.Resources["UrlProducsController"].ToString();
