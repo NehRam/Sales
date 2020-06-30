@@ -50,5 +50,11 @@
 	<string>this app needs access to the photo galery.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+  <key>NSLocationAlwaysUsageDescription</key>
+  <string>Can we use your location at all times?</string>
+  <key>NSLocationWhenInUseUsageDescription</key>
+  <string>Can we use your location when your app is being used?</string>
+  <key>NSLocationAlwayAndWhenInUseUsageDescription</key>
+  <string>Can we use your location at all times?</string>
 </dict>
 </plist>
