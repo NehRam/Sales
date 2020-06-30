@@ -5,6 +5,7 @@
     using Android.OS;
     using Android.Runtime;
     using ImageCircle.Forms.Plugin.Droid;
+    using Plugin.CurrentActivity;
 
     [Activity(Label = "Sales", 
         Icon = "@drawable/ic_launcher", 
@@ -23,6 +24,8 @@
             //CrossCurrentActivity.Current.Init(this, savedInstanceState);
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             ImageCircleRenderer.Init();
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
+
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             global::Xamarin.FormsMaps.Init(this, savedInstanceState);
             LoadApplication(new App());

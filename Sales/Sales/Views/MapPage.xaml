@@ -12,13 +12,13 @@
             <maps:Map
                 x:Name="MyMap"
                 HorizontalOptions="FillAndExpand"
-                IsShowingUser="True"
                 MapType="Street"
                 VerticalOptions="FillAndExpand">
             </maps:Map>
             <Slider
                 x:Name="MySlider"
-                Value="0.8">
+                Value="0.8"
+                ValueChanged="Handle_ValueChanged">
             </Slider>
         </StackLayout>
     </ContentPage.Content>
