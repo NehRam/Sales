@@ -25,7 +25,7 @@ namespace Sales.ViewModels
             }
         }
 
-        private void GoTo()
+        private async void GoTo()
         {
             if (this.PageName == "LoginPage")
             {
@@ -34,6 +34,11 @@ namespace Sales.ViewModels
                 Settings.IsRemembered = false;
                 MainViewModel.GetInstance().Login = new LoginViewModel();
                 Application.Current.MainPage = new NavigationPage(new LoginPage());
+            }
+            else if (this.PageName == "AboutPage")
+            {
+                App.Master.IsPresented = false;
+                await App.Navigator.PushAsync(new MapPage());
             }
         }
         #endregion
